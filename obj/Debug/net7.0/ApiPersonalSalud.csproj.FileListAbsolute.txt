@@ -1,0 +1,7 @@
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.csproj.AssemblyReference.cache
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.AssemblyInfoInputs.cache
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.AssemblyInfo.cs
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.MvcApplicationPartsAssemblyInfo.cs
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.MvcApplicationPartsAssemblyInfo.cache

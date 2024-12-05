@@ -12,6 +12,10 @@ public class ApplicationDBContext : DbContext
     #region ConfiguracionRequerida
     //CONFIGURACION PERSONALIZADA PARA EL OBJETO DE CONTEXTO
     protected override void OnModelCreating(ModelBuilder modelBuilder){
+        //CONFIGURACION DE TABLA GESTANTE
+        //CONFIGURACION DE TABLA PERSONAL DE SALUD
+        //CODNFIGURACION DE TAL COSA.
+        //CON
     }
     #endregion
 }

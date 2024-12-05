@@ -11,5 +11,5 @@ public class CENPersonalSalud
     public string? Nombres{get;set;}
     public string? Apellidos{get;set;}
     public string? Especialidad{get;set;}
-    public bool Estado{get;set;}
+    public bool Estado{get;set;} //ACTIVO - 0 | INACTIVO - 1
 }

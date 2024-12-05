@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using static ApiPersonalSalud.CAD.ConfigModels.CMGestante;
 
 namespace ApiPersonalSalud.CEN.CenEntidades
 {
@@ -25,9 +23,13 @@ namespace ApiPersonalSalud.CEN.CenEntidades
         public string? Apellidos{get;set;}
         [RegularExpression(@"^\d{8}$", ErrorMessage ="El DNI solo debe contener 8 digitos numericos")]
         public string? DNI{get;set;}
+        //Restriccion de Validacion con propiedad de Atributo
+        [ValidarFechaNacimiento]
         public DateTime FechaNacimiento{get;set;}
         public string? Direccion{get;set;}
+        [RegularExpression(@"^\d{9}$",ErrorMessage ="El telefono debe contener 9 caracteres")]
         public string? Telefono{get;set;}
+        [EmailAddress(ErrorMessage ="Ingrese un correo valido")]
         public string? Correo{get;set;} 
         public ushort EdadGestacional{get;set;}
         public GrupoSanguineo GrupoSanguineo{get;set;} //A+ O- AB+

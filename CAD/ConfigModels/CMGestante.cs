@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations; //Para implementar herencia de ValidationAttribute
 using System.Linq;
 using System.Threading.Tasks;
 using ApiPersonalSalud.CEN.CenEntidades;
@@ -28,7 +29,44 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
                 .HasMaxLength(8);
 
         builder.Property(g=>g.FechaNacimiento)
-                .IsRequired() //NOT NULL
+                .IsRequired(); //NOT NULL
+            //**Añadimos una restriccion a nivel de entidad pero con el metodo toTable
+        builder.ToTable(t=>{
+            t.HasCheckConstraint(
+                "CK_CENGestante_FechaNacimiento",
+                "FechaNacimiento <= DATEADD(YEAR,-14,GETDATE())");
+        });
 
+            //**Configuracion de Direccion
+        builder.Property(g=>g.Direccion)
+                .IsRequired(false);
+        builder.Property(g=>g.Telefono)
+                .IsRequired()
+                .HasMaxLength(9); //123456789
+        //CONFIGURACION DEL CAMPO TELEFONO A NIVEL DE ENTIDAD
+        builder.ToTable(t=>{
+            t.HasCheckConstraint(
+                "CHK_CENGestante_Telefono",
+                "Telefono IS NOT NULL OR (LEN(Telefono) = 9 AND Telefono NOT LIKE '%[^0-9]%')");
+        });
+  
     }
+
+    //VALIDACION PERSONALIZADA DE LA FECHA USANDO DATA ANNOTAIONS
+    public class ValidarFechaNacimientoAttribute:ValidationAttribute{
+        //Sobreescribimos el metodo
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+        {
+            //TECNICA FUNCIONAL-> uTILIZADA EN CONTROLES DE FLUJO
+            //PATRON DE DECLARACION->Evalua una expresion si es un T.Dato y lo almacena en una nueva variable
+            if(value is DateTime fechaNacimiento){
+                //Establecemos una fecha Limite
+                DateTime fechaLimite=DateTime.Now.AddYears(-14);
+                if(fechaNacimiento>=fechaLimite)
+                    return new ValidationResult($"La fecha de nacimiento tiene que ser menor a la fecha {fechaLimite}");
+            }
+            return ValidationResult.Success;
+        }
+    }
+
 }
