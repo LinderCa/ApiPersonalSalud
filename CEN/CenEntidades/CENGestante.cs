@@ -32,6 +32,7 @@ namespace ApiPersonalSalud.CEN.CenEntidades
         [EmailAddress(ErrorMessage ="Ingrese un correo valido")]
         public string? Correo{get;set;} 
         public ushort EdadGestacional{get;set;}
+        [EnumDataType(typeof(GrupoSanguineo),ErrorMessage="El grupo Sanguineono es valido")]
         public GrupoSanguineo GrupoSanguineo{get;set;} //A+ O- AB+
     }
 }

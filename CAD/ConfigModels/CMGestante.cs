@@ -14,6 +14,8 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
     public void Configure(EntityTypeBuilder<CENGestante> builder)
     {
         //cONFIGURACION
+            //**Configuracion del nombre de mi tabla
+        builder.ToTable("Gestantes");
         builder.HasKey(g => g.Id);
             //**Configuracion para el campo Nombre
         builder.Property(g => g.Nombres)
@@ -32,9 +34,25 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
                 .IsRequired(); //NOT NULL
             //**Añadimos una restriccion a nivel de entidad pero con el metodo toTable
         builder.ToTable(t=>{
+            //Fecha de Nacimiento
             t.HasCheckConstraint(
-                "CK_CENGestante_FechaNacimiento",
+                "CHK_CENGestante_FechaNacimiento",
                 "FechaNacimiento <= DATEADD(YEAR,-14,GETDATE())");
+
+                //TElefono
+                 t.HasCheckConstraint(
+                "CHK_CENGestante_Telefono",
+                "Telefono IS NOT NULL OR (LEN(Telefono) = 9 AND Telefono NOT LIKE '%[^0-9]%')");
+
+                //Correo
+                t.HasCheckConstraint(
+                "CHK_CENGestante_Correo",
+                "Correo LIKE '_%@_%._%'");
+
+                //Grupo Sangiuinero
+                t.HasCheckConstraint(
+                    "CHK_CENGestante_GrupoSanguineo",
+                    "GrupoSanguineo BETWEEN 0 AND 7");
         });
 
             //**Configuracion de Direccion
@@ -43,13 +61,10 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
         builder.Property(g=>g.Telefono)
                 .IsRequired()
                 .HasMaxLength(9); //123456789
-        //CONFIGURACION DEL CAMPO TELEFONO A NIVEL DE ENTIDAD
-        builder.ToTable(t=>{
-            t.HasCheckConstraint(
-                "CHK_CENGestante_Telefono",
-                "Telefono IS NOT NULL OR (LEN(Telefono) = 9 AND Telefono NOT LIKE '%[^0-9]%')");
-        });
-  
+       
+            //**Configuracion para la Edad Gestacional
+        builder.Property(g=>g.EdadGestacional)
+                .IsRequired();
     }
 
     //VALIDACION PERSONALIZADA DE LA FECHA USANDO DATA ANNOTAIONS

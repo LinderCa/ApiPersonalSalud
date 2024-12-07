@@ -8,14 +8,13 @@ namespace ApiPersonalSalud.CAD;
 //objeto de contexto de EFC
 public class ApplicationDBContext : DbContext
 {
+    //Propiedad de DbSet
+    public DbSet<CENGestante> Gestantes;
     //definimos las propiedades para el mapeo con la base de datos
     #region ConfiguracionRequerida
     //CONFIGURACION PERSONALIZADA PARA EL OBJETO DE CONTEXTO
     protected override void OnModelCreating(ModelBuilder modelBuilder){
-        //CONFIGURACION DE TABLA GESTANTE
-        //CONFIGURACION DE TABLA PERSONAL DE SALUD
-        //CODNFIGURACION DE TAL COSA.
-        //CON
+        //
     }
     #endregion
 }
