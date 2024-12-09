@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "dy/DSiJdKLuJSdgvJGnDVb7aBn3cQTJz9dQq7ZpjMNM=",
+  "Source": "ApiPersonalSalud",
+  "BasePath": "_content/ApiPersonalSalud",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

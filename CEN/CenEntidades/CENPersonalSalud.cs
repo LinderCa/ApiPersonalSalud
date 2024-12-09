@@ -10,6 +10,6 @@ public class CENPersonalSalud
     public ushort Id{get;set;}
     public string? Nombres{get;set;}
     public string? Apellidos{get;set;}
-    public string? Especialidad{get;set;}
+    public char Especialidad{get;set;} //Medico General -M | Enfermera-E | Obstetra-O
     public bool Estado{get;set;} //ACTIVO - 0 | INACTIVO - 1
 }

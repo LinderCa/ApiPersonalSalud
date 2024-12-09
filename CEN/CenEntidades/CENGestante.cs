@@ -21,6 +21,7 @@ namespace ApiPersonalSalud.CEN.CenEntidades
         public ushort Id{get;set;}
         public string? Nombres{get;set;}
         public string? Apellidos{get;set;}
+        //DECORADOR
         [RegularExpression(@"^\d{8}$", ErrorMessage ="El DNI solo debe contener 8 digitos numericos")]
         public string? DNI{get;set;}
         //Restriccion de Validacion con propiedad de Atributo
