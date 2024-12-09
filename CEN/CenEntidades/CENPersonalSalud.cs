@@ -12,4 +12,8 @@ public class CENPersonalSalud
     public string? Apellidos{get;set;}
     public char Especialidad{get;set;} //Medico General -M | Enfermera-E | Obstetra-O
     public bool Estado{get;set;} //ACTIVO - 0 | INACTIVO - 1
+
+
+    //UNO A MUCHOS: Un personal de Salud tiene muchas citas
+    public ICollection<CENCita>? Citas{get;set;}
 }

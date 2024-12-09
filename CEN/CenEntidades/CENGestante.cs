@@ -35,5 +35,8 @@ namespace ApiPersonalSalud.CEN.CenEntidades
         public ushort EdadGestacional{get;set;}
         [EnumDataType(typeof(GrupoSanguineo),ErrorMessage="El grupo Sanguineono es valido")]
         public GrupoSanguineo GrupoSanguineo{get;set;} //A+ O- AB+
+
+        //RELACION DE UNO A MUCHOS: Una Gestante puede adquirir muchas citas
+        public ICollection<CENCita>? Citas;
     }
 }
