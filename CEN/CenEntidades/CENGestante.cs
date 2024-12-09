@@ -38,6 +38,7 @@ namespace ApiPersonalSalud.CEN.CenEntidades
 
         //RELACION DE UNO A MUCHOS: Una Gestante puede adquirir muchas citas
         public ICollection<CENCita>? Citas;
+        public ICollection<CENAntecedentesMedicos>? AntecedentesMedicos;
 
         //Una Gestante tiene un usuario
         public CENUsuario? Usuario{get;set;}

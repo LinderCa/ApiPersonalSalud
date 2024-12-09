@@ -74,6 +74,12 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
                 .HasForeignKey(c=>c.IdGestante)
                 .OnDelete(DeleteBehavior.Cascade);
 
+        //UNA GESTANTE TIENE MUCHOS ANTECEDENTES MEDICOS
+        builder.HasMany(g=>g.AntecedentesMedicos)
+                .WithOne(a=>a.Gestante)
+                .HasForeignKey(a=>a.IdGestante)
+                .OnDelete(DeleteBehavior.Cascade);
+
         //CONFIGURACION DE RELACION DE UNO A UNO
         builder.HasOne(g=>g.Usuario)
                 .WithOne(u=>u.Gestante)

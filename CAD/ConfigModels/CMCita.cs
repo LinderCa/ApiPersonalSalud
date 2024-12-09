@@ -17,13 +17,13 @@ public class CMCita : IEntityTypeConfiguration<CENCita>
 
         //CONFIGURACION DE RELACION
         builder.HasOne(c=>c.Gestante) //Una cita tiene una sola gestante
-                .WithMany()             //Una gestante puede tener muchas citas
+                .WithMany(g=>g.Citas)             //Una gestante puede tener muchas citas
                 .HasForeignKey(c=>c.IdGestante) //Llave Foranea en CenCita
                 .OnDelete(DeleteBehavior.Cascade); //Elimita las citas asociadas cuando se elimine un gestante
     
         //CONFIGURACION DE LA RELACION CON PERSONAL DE SALUD
         builder.HasOne(c=>c.PersonalSalud)      //Una Cita es atendido por un PS
-                .WithMany()                 //Un PS puede tener muchas citas
+                .WithMany(p=>p.Citas)                 //Un PS puede tener muchas citas
                 .HasForeignKey(c=>c.IdPersonalSalud)
                 .OnDelete(DeleteBehavior.Cascade);
 
