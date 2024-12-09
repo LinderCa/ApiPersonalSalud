@@ -44,5 +44,11 @@ public class CMPersonalSalud : IEntityTypeConfiguration<CENPersonalSalud>
                 .WithOne(c=>c.PersonalSalud)   //Una cita puede tener un PS
                 .HasForeignKey(c=>c.IdPersonalSalud)
                 .OnDelete(DeleteBehavior.Cascade);
+
+                //Configuracion de Un PS tiene un Usuario
+        builder.HasOne(p=>p.Usuario)
+                .WithOne(u=>u.PersonalSalud)
+                .HasForeignKey<CENUsuario>(u=>u.IdPersonalSalud)
+                .OnDelete(DeleteBehavior.Cascade);
     }
 }

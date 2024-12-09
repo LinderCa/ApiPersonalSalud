@@ -33,4 +33,7 @@ public class CENCita
 
     //Entidad de RElacion de que una Cita puede tener un monitoreo
     public CENMonitoreo? Monitoreo{get;set;}
+
+    //Entidad de RElacion una cita puede una CONSULTA
+    public CENConsulta? Consulta{get;set;}
 }

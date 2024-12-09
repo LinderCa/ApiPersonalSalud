@@ -16,4 +16,7 @@ public class CENPersonalSalud
 
     //UNO A MUCHOS: Un personal de Salud tiene muchas citas
     public ICollection<CENCita>? Citas{get;set;}
+
+    //RELACION
+    public CENUsuario? Usuario{get;set;}
 }

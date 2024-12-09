@@ -74,6 +74,12 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
                 .HasForeignKey(c=>c.IdGestante)
                 .OnDelete(DeleteBehavior.Cascade);
 
+        //CONFIGURACION DE RELACION DE UNO A UNO
+        builder.HasOne(g=>g.Usuario)
+                .WithOne(u=>u.Gestante)
+                .HasForeignKey<CENUsuario>(u=>u.IdGestante)
+                .OnDelete(DeleteBehavior.Cascade);
+
     }
 
     //VALIDACION PERSONALIZADA DE LA FECHA USANDO DATA ANNOTAIONS
