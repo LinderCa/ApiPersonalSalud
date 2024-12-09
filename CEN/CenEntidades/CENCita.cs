@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiPersonalSalud.CEN.CenEntidades;
 
@@ -25,7 +21,6 @@ public class CENCita
     //CREACION DE INDICES EXTERNOS (FK)
     public ushort IdGestante{get;set;}
     public CENGestante? Gestante{get;set;}
-
     public ushort IdPersonalSalud{get;set;}
     public CENPersonalSalud? PersonalSalud{get;set;}
     public DateTime FechaCita{get;set;}
@@ -35,4 +30,7 @@ public class CENCita
 
     [EnumDataType(typeof(EstadoCita),ErrorMessage ="El estado de cita no es valido(0-Programada 1-Completada 2-Seguimiento de complicaciones)")]
     public EstadoCita Estado{get;set;} //0-Programada | 1-Completada | 2-Cancelada
+
+    //Entidad de RElacion de que una Cita puede tener un monitoreo
+    public CENMonitoreo? Monitoreo{get;set;}
 }

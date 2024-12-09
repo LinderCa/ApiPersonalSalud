@@ -13,7 +13,7 @@ public class CMPersonalSalud : IEntityTypeConfiguration<CENPersonalSalud>
     public void Configure(EntityTypeBuilder<CENPersonalSalud> builder)
     {
         //CONFIGURAR EL NOMBRE DE MI TABLA
-        builder.ToTable("PersonaSalud");
+        builder.ToTable("PersonalSalud");
 
         //Configuracion de Id
         builder.HasKey(p=> p.Id);

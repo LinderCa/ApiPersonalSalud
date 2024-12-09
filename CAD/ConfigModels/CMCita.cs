@@ -44,5 +44,11 @@ public class CMCita : IEntityTypeConfiguration<CENCita>
 
         builder.Property(c=>c.Estado)
                 .IsRequired();
+
+        //RELACION PARA LA CITA
+        builder.HasOne(c=>c.Monitoreo)  //Una cita tiene un solo monitoreo
+                .WithOne(m=>m.Cita)     //Un monitoreo pertenece a una cita
+                .HasForeignKey<CENMonitoreo>(m=>m.IdCita)       //La clave foranea esta en CENMonitoreo
+                .OnDelete(DeleteBehavior.Cascade);
     }
 }
