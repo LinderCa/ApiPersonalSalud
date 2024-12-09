@@ -13,4 +13,9 @@ public class CENMonitoreo
     public DateTime FechaMonitoreo{get;set;}
     public ushort Proceso{get;set;} //virtual-0 | presencial-1
     public ushort Tipo{get;set;} //control-0 | consulta-1
+
+    //RELACION: Un Monitoreo puede tener un diagnostico
+    public CENDiagnostico? Diagnostico{get;set;}
+    //RELACION: Un monitoreo genera un datoBiometrico de cada cita
+    public CENDatosBiometricos? DatosBiometricos{get;set;}
 }

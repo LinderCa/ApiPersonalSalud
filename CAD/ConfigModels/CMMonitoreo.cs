@@ -23,5 +23,17 @@ public class CMMonitoreo : IEntityTypeConfiguration<CENMonitoreo>
             t.HasCheckConstraint("CHK_CENMonitoreo_Proceso","Proceso IN (0,1)");
             t.HasCheckConstraint("CHK_CENMonitoreo_Tipo"," Tipo IN (0,1)");
         });
+
+        //RELACION: Un monitoreo tiene un diagnostico
+        builder.HasOne(m=>m.Diagnostico) //uno a uno
+                .WithOne(d=>d.Monitoreo)
+                .HasForeignKey<CENDiagnostico>(d=>d.IdMonitoreo)
+                .OnDelete(DeleteBehavior.Cascade);
+
+        //RELAION:Un monitore genera datosBiometricos
+        builder.HasOne(m=>m.DatosBiometricos)
+                .WithOne(b=>b.Monitoreo)
+                .HasForeignKey<CENDatosBiometricos>(b=>b.IdMonitoreo)
+                .OnDelete(DeleteBehavior.Cascade);
     }   
 }
