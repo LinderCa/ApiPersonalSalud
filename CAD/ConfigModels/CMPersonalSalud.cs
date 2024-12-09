@@ -38,5 +38,11 @@ public class CMPersonalSalud : IEntityTypeConfiguration<CENPersonalSalud>
         builder.Property(p=>p.Estado)
                 .IsRequired()
                 .HasDefaultValue(false);
+
+                //configuracion de relacion con citas
+        builder.HasMany(p=>p.Citas)     //Una gestante puede tener muchas citas
+                .WithOne(c=>c.PersonalSalud)   //Una cita puede tener un PS
+                .HasForeignKey(c=>c.IdPersonalSalud)
+                .OnDelete(DeleteBehavior.Cascade);
     }
 }

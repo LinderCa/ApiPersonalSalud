@@ -32,6 +32,7 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
 
         builder.Property(g=>g.FechaNacimiento)
                 .IsRequired(); //NOT NULL
+
             //**Añadimos una restriccion a nivel de entidad pero con el metodo toTable
         builder.ToTable(t=>{
             //Fecha de Nacimiento
@@ -65,6 +66,14 @@ public class CMGestante : IEntityTypeConfiguration<CENGestante>
             //**Configuracion para la Edad Gestacional
         builder.Property(g=>g.EdadGestacional)
                 .IsRequired();
+
+
+        //CONFIGURACION DE RELACION
+        builder.HasMany(g=>g.Citas) //Una gestante tiene muchas citas
+                .WithOne(c=>c.Gestante) //Cada cida tiene una sola gestante
+                .HasForeignKey(c=>c.IdGestante)
+                .OnDelete(DeleteBehavior.Cascade);
+
     }
 
     //VALIDACION PERSONALIZADA DE LA FECHA USANDO DATA ANNOTAIONS
