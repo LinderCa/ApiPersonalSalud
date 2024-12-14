@@ -4,6 +4,7 @@ using ApiPersonalSalud.CAD;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiPersonalSalud.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241214154946_UdpdateCMUsuario")]
+    partial class UdpdateCMUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -341,10 +344,10 @@ namespace ApiPersonalSalud.Migrations
                     b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("IdGestante")
+                    b.Property<int>("IdGestante")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdPersonalSalud")
+                    b.Property<int>("IdPersonalSalud")
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
@@ -362,12 +365,10 @@ namespace ApiPersonalSalud.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdGestante")
-                        .IsUnique()
-                        .HasFilter("[IdGestante] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("IdPersonalSalud")
-                        .IsUnique()
-                        .HasFilter("[IdPersonalSalud] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Usuario", null, t =>
                         {
@@ -454,12 +455,14 @@ namespace ApiPersonalSalud.Migrations
                     b.HasOne("ApiPersonalSalud.CEN.CenEntidades.CENGestante", "Gestante")
                         .WithOne("Usuario")
                         .HasForeignKey("ApiPersonalSalud.CEN.CenEntidades.CENUsuario", "IdGestante")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ApiPersonalSalud.CEN.CenEntidades.CENPersonalSalud", "PersonalSalud")
                         .WithOne("Usuario")
                         .HasForeignKey("ApiPersonalSalud.CEN.CenEntidades.CENUsuario", "IdPersonalSalud")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Gestante");
 

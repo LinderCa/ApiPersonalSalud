@@ -16,15 +16,13 @@ public class CENUsuario
 {
     public ushort Id{get;set;}
     //FOREANAS
-    public ushort IdGestante{get;set;}
+    public ushort? IdGestante{get;set;}
     public CENGestante? Gestante{get;set;}
-    public ushort IdPersonalSalud{get;set;}
+    public ushort? IdPersonalSalud{get;set;}
     public CENPersonalSalud? PersonalSalud{get;set;}
     public string? User{get;set;}
     public string? Password{get;set;}
     public RolUsuario Rol{get;set;} //Enumeracion
-    public string? Correo{get;set;}
-    public string? IdReferencial{get;set;}  //GE0001 - PS0001 - AD0001 - NULL
     public bool Estado{get;set;}    //Activo-1-true | Inactivo-0-false
     public DateTime FechaIngreso{get;set;}
 }

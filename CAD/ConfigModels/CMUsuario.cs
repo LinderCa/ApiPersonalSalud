@@ -21,14 +21,13 @@ public class CMUsuario:IEntityTypeConfiguration<CENUsuario>
                 .HasMaxLength(50);
         builder.ToTable(t=>{
             t.HasCheckConstraint("CHK_CENUsuario_Rol","Rol BETWEEN 0 AND 3");
-            t.HasCheckConstraint("CHK_CENUsuario_Correo","Correo LIKE '_%@_%._%'");
         });
 
-        builder.Property(u=>u.IdReferencial)
-                .IsRequired(false)
-                .HasMaxLength(6);
         builder.Property(u=>u.Estado)
                 .HasDefaultValue(false);
-
+        builder.Property(u=>u.IdGestante)
+                .IsRequired(false);
+        builder.Property(u=>u.IdPersonalSalud)
+                .IsRequired(false);
     }   
 }
