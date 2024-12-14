@@ -84,3 +84,8 @@ D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\refint\ApiPersonalSalud.d
 D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.pdb
 D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ApiPersonalSalud.genruntimeconfig.cache
 D:\PROYECTOS\BACKEND\ApiPersonalSalud\obj\Debug\net7.0\ref\ApiPersonalSalud.dll
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\bin\Debug\net7.0\Humanizer.dll
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\PROYECTOS\BACKEND\ApiPersonalSalud\bin\Debug\net7.0\System.CodeDom.dll

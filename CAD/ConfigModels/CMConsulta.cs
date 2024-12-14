@@ -17,5 +17,10 @@ public class CMConsulta:IEntityTypeConfiguration<CENConsulta>
                 .IsRequired(false);
         builder.Property(o=>o.Resultados)
                 .IsRequired(false);
+        // Configuración de la clave foránea para la relación uno-a-uno
+        builder.HasOne(o => o.Cita)
+               .WithOne(c => c.Consulta)
+               .HasForeignKey<CENConsulta>(o => o.IdCita)
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }
